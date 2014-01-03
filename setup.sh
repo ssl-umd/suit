@@ -4,7 +4,7 @@ FILENAME=$SERENVERSION".tar.gz"
 CONFERENCEIP=192.168.1.46
 
 echo "installing dependencies..."
-apt-get install build-essential libasound2-dev libogg-dev libncurses5-dev libncursesw5-dev
+apt-get install build-essential libasound2-dev libogg-dev libncurses5-dev libncursesw5-dev arp-scan
 
 echo "installing libopus..."
 mkdir src
