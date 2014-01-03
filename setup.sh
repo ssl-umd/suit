@@ -29,6 +29,7 @@ echo "configuring and installing seren"
 cd $SERENVERSION
 ./configure
 make
+make install
 cd ..
 
 echo "creating scripts..."
