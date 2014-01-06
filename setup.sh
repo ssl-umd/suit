@@ -1,18 +1,18 @@
 #!/bin/bash
-SERENVERSION="seren-0.0.15"
+SERENVERSION="seren-0.0.16"
 FILENAME=$SERENVERSION".tar.gz"
 CONFERENCEIP=192.168.1.46
 
 echo "installing dependencies..."
-apt-get install build-essential libasound2-dev libogg-dev libncurses5-dev libncursesw5-dev arp-scan
+apt-get install build-essential libasound2-dev libogg-dev libncurses5-dev libncursesw5-dev
 
-echo "installing libopus..."
+echo "installing libopus (fixed point)..."
 mkdir src
 cd src
 wget http://downloads.xiph.org/releases/opus/opus-1.1.tar.gz
 tar xvf opus-1.1.tar.gz
 cd opus-1.1/
-./configure
+./configure --enable-fixed-point
 make
 make install
 ldconfig
@@ -35,7 +35,7 @@ cd ..
 echo "creating scripts..."
 echo "#!/bin/bash" > callIP
 echo "echo \"connecting to voice conference on \"\$1" >> callIP
-echo "echo \"/c \" \$1 | /home/pi/suit/$SERENVERSION/seren -n alpha -d plug:front:Set" >> callIP
+echo "seren -C0 -c \$1 -n pi -d plug:front:Set > /dev/null" >> callIP
 echo "#!/bin/bash" > initCall
 echo "/home/pi/suit/startVoice" >> initCall
 echo "#!/bin/bash" > joinCall
@@ -55,5 +55,4 @@ cp initCall /etc/init.d
 
 echo "Configuration complete. To set up running at boot, add the following line to rc.local:"
 echo "nohup /etc/init.d/initCall &"
-
 
