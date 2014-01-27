@@ -1,7 +1,7 @@
 #!/bin/bash
 SERENVERSION="seren-0.0.17"
 FILENAME=$SERENVERSION".tar.gz"
-CONFERENCEIP=192.168.1.46
+CONFERENCEIP=192.168.1.20
 
 echo "installing dependencies..."
 apt-get install build-essential libasound2-dev libogg-dev libncurses5-dev libncursesw5-dev
@@ -35,7 +35,7 @@ cd ..
 echo "creating scripts..."
 echo "#!/bin/bash" > callIP
 echo "echo \"connecting to voice conference on \"\$1" >> callIP
-echo "/home/pi/suit/"$SERENVERSION"/seren -C0 -s -N -c \$1 -n pi -d plug:front:Set > /dev/null" >> callIP
+echo "/home/pi/suit/"$SERENVERSION"/seren -C0 -s -N -c \$1 -n pi -d plug:front:Set > callIP.out" >> callIP
 echo "#!/bin/bash" > initCall
 echo "/home/pi/suit/startVoice" >> initCall
 echo "#!/bin/bash" > joinCall
