@@ -35,7 +35,7 @@ cd ..
 echo "creating scripts..."
 echo "#!/bin/bash" > callIP
 echo "echo \"connecting to voice conference on \"\$1" >> callIP
-echo "/home/pi/suit/"$SERENVERSION"/seren -C0 -s -N -c \$1 -n pi -d plug:front:Set > callIP.out" >> callIP
+echo "/home/pi/suit/"$SERENVERSION"/seren -C0 -S -N -c \$1 -n pi -d plug:front:Set > callIP.out" >> callIP
 echo "#!/bin/bash" > initCall
 echo "/home/pi/suit/startVoice" >> initCall
 echo "#!/bin/bash" > joinCall
