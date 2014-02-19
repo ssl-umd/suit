@@ -41,7 +41,7 @@ echo "/home/pi/suit/"$SERENVERSION"/seren -C0 -S -N -c \$1 -n pi -d plug:front:S
 
 echo "#!/bin/bash" > startConference
 echo "echo \"initializing voice conference\"" >> startConference
-echo "/home/pi/suit/"$SERENVERSION"/seren -C0 -S -N -n pi -a -d plug:front:Set > startConference.out" >> startConference
+echo "/home/pi/suit/"$SERENVERSION"/seren -C0 -S -N -n pi -a -d plug:front:Set" >> startConference
 
 echo "#!/bin/bash" > initCall
 echo "/home/pi/suit/startVoice" >> initCall
